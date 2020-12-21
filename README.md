@@ -1,5 +1,7 @@
 # [ashmortar.io](https://ashmortar.io)
 
+## [![Build Status](https://api.netlify.com/api/v1/badges/3b6231e5-fa67-4015-9918-552aec670a68/deploy-status)](https://app.netlify.com/sites/brave-montalcini-0eec80/deploys)
+
 This website is built using [Docusaurus 2](https://v2.docusaurus.io/), a modern static website generator. It is my personal website and blog.
 
 ## Installation
