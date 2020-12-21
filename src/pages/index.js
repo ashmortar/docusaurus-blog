@@ -64,7 +64,7 @@ function Home() {
             <div class="card__image">
               <img
                 className={styles.cardImg}
-                src={useBaseUrl('static/img/nBody.gif')}
+                src={useBaseUrl('img/nBody.gif')}
                 alt="N-Body simulation animated gif"
                 title="N-Body Simulation done with canvas"
               />
@@ -85,7 +85,7 @@ function Home() {
             <div class="card__image">
               <img
                 className={styles.cardImg}
-                src={useBaseUrl('/static/img/Soulless.png')}
+                src={useBaseUrl('/img/Soulless.png')}
                 alt="Main Screen for Soulless, react native game"
                 title="Main Screen for Soulless, a react native game"
               />
