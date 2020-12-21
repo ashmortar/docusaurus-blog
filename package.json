@@ -3,6 +3,8 @@
   "description": "Personal website and blog created with docusaurus v2",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://ashmortar.io",
+  "keywords": ["docusaurus", "blog", "typescript", "eslint", "prettier", "mdx", "react"],
   "author": {
     "email": "ashmortar@gmail.com",
     "name": "Aaron Ross",
@@ -18,7 +20,9 @@
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "serve": "docusaurus serve",
-    "clear": "docusaurus clear"
+    "clear": "docusaurus clear",
+    "preserve": "yarn build",
+    "prebuild": "yarn --frozen-lockfile"
   },
   "dependencies": {
     "@docusaurus/core": "2.0.0-alpha.70",

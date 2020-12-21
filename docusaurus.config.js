@@ -9,6 +9,10 @@ module.exports = {
   organizationName: 'ashmortar',
   projectName: 'docusaurus-blog',
   themeConfig: {
+    gtag: {
+      trackingID: 'G-G9Z8YB7PP7',
+      anonymizeIP: true,
+    },
     navbar: {
       title: 'ashmortar.io',
       logo: {
@@ -73,6 +77,16 @@ module.exports = {
         docs: false,
         blog: {
           showReadingTime: true,
+          blogTitle: 'Rambling On',
+          blogDescription: 'Musings of a Polymath',
+          blogSidebarCount: 5,
+          blogSidebarTitle: 'Previous Ramblings',
+          postsPerPage: 10,
+          feedOptions: {
+            type: 'all',
+            title: 'Rambling On',
+            description: 'Musings of a Polymath',
+          },
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
