@@ -6,8 +6,8 @@ module.exports = {
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/midi.svg',
-  organizationName: 'ashmortar', // Usually your GitHub org/user name.
-  projectName: 'docusaurus-blog', // Usually your repo name.
+  organizationName: 'ashmortar',
+  projectName: 'docusaurus-blog',
   themeConfig: {
     navbar: {
       title: 'ashmortar.io',
@@ -16,7 +16,7 @@ module.exports = {
         src: 'img/midi.svg',
       },
       items: [
-        {to: 'blog', label: 'Blog', position: 'left'},
+        { to: 'blog', label: 'Blog', position: 'left' },
         {
           href: 'https://github.com/ashmortar',
           label: 'GitHub',
@@ -70,9 +70,7 @@ module.exports = {
     [
       '@docusaurus/preset-classic',
       {
-        docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
-        },
+        docs: false,
         blog: {
           showReadingTime: true,
         },

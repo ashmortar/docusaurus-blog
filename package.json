@@ -10,6 +10,9 @@
   },
   "scripts": {
     "docusaurus": "docusaurus",
+    "lint": "eslint . --cache --ext .js,.jsx,.ts,.tsx",
+    "lint-fix": "yarn --silent lint --fix; exit 0",
+    "postlint-fix": "prettier --ignore-path .eslintignore --single-quote --write '**/*.{js,jsx,json,html,less,yml,md,mdx}'",
     "start": "docusaurus start",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
@@ -26,15 +29,71 @@
     "react-dom": "^16.8.4"
   },
   "browserslist": {
-    "production": [
-      ">0.5%",
-      "not dead",
-      "not op_mini all"
-    ],
+    "production": [">0.5%", "not dead", "not op_mini all"],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@docusaurus/module-type-aliases": "^2.0.0-alpha.70",
+    "@tsconfig/docusaurus": "^1.0.2",
+    "@types/react": "^17.0.0",
+    "@types/react-helmet": "^6.1.0",
+    "@types/react-router-dom": "^5.1.6",
+    "@typescript-eslint/eslint-plugin": "^4.10.0",
+    "eslint": "^7.5.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-airbnb-typescript": "^9.0.0",
+    "eslint-config-erb": "^1.0.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-compat": "^3.8.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jest": "^24.1.3",
+    "eslint-plugin-jsx-a11y": "6.3.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-react-hooks": "^4.0.8",
+    "husky": ">=4",
+    "jest": "^26.6.3",
+    "lint-staged": ">=10",
+    "prettier": "^2.2.1",
+    "stylelint": "^13.6.1",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-standard": "^20.0.0",
+    "typescript": "^4.1.3"
+  },
+  "prettier": {
+    "overrides": [
+      {
+        "files": [".prettierrc", ".babelrc", ".eslintrc", ".stylelintrc"],
+        "options": {
+          "parser": "json"
+        }
+      }
+    ],
+    "singleQuote": true,
+    "printWidth": 90
+  },
+  "stylelint": {
+    "extends": ["stylelint-config-standard", "stylelint-config-prettier"]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": ["eslint --cache"],
+    "{*.json,.{babelrc,eslintrc,prettierrc,stylelintrc}}": [
+      "prettier --ignore-path .eslintignore --parser json --write"
+    ],
+    "*.{css,scss}": [
+      "stylelint --ignore-path .eslintignore --syntax scss --fix",
+      "prettier --ignore-path .eslintignore --single-quote --write"
+    ],
+    "*.{html,md,yml,mdx}": ["prettier --ignore-path .eslintignore --single-quote --write"]
   }
 }

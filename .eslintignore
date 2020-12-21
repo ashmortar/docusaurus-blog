@@ -1,0 +1,23 @@
+# Docusaurus stuff
+.docusaurus
+
+# Production buil
+build
+
+# node modules
+node_modules
+
+# yarn
+yarn-erroor.log
+yarn.lock
+
+# git
+.gitignore
+.git
+
+# eslint
+.eslintignore
+.eslintcache
+
+# static assets
+static/
