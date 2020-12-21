@@ -40,8 +40,8 @@ module.exports = {
               to: 'blog',
             },
             {
-              label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              label: 'Repository',
+              href: 'https://github.com/ashmortar/docusaurus-blog',
             },
           ],
         },
