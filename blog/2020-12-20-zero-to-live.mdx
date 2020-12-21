@@ -1,0 +1,93 @@
+---
+slug: zero-to-live
+title: Zero to Live
+author: Aaron Ross
+author_title: Software Engineer / Web Developer @ EyeCue Lab
+author_url: https://github.com/ashmortar
+author_image_url: https://avatars1.githubusercontent.com/u/33615526?v=4
+description: why to build your next blog with docusaurus instead of gatsby or nextjs
+tags: [blog, hello, docusaurus, nextjs, vercel, netlify, gatsby, ci]
+image: https://docusaurus.io/img/undraw_docusaurus_tree.svg
+---
+Creating a website/blog and hosting it has never been faster or easier, but with so many options how should one decide?  Here are some of my key considerations when creating this site:
+
+<!--truncate-->
+- [Content Creation](#content-creation)
+- [Build Chain](#build-chain)
+- [Hosting](#hosting)
+
+## Content Creation
+
+![img](../static/img/bill_gates.jpeg)
+The well known saying attributed to Bill Gates has proven to be quite accurate throughout the ever changing landscape of media and technology over the last 25 (yikes!) years and since the entire point of a blog is the content then this is where design should start.
+
+As a software developer important features for me are and easy developer experience and the ability to easily include the things that are important to me and (potentially) my audience like code (or even full components) or ease of integration with a git based workflow. This lead me naturally to wanting to use Markdown ([more specifically MDX](https://mdxjs.com/)) as the markup language for my blog posts.
+
+For those unfamiliar with mdx is allows one to combine jsx and markdown in the same format. So you can write some mdx like this:
+
+```md
+
+#### A Heading For Jsx Content
+
+<div style={{ padding: '2rem', background: '#f4f4' }}>
+  <p style={{ color: 'black' }}>you got <em>jsx</em> in my <strong>markdown</strong></p>
+  <p style={{ color: 'brown' }}>No, you got <em>markdown</em> in my <strong>jsx</strong></p>
+</div>
+```
+
+and it will look like this:
+
+#### A Heading For Jsx Content
+
+<div style={{ padding: '2rem', background: '#f4f4' }}>
+  <p style={{ color: 'black' }}>you got <em>jsx</em> in my <strong>markdown</strong></p>
+  <p style={{ color: 'brown' }}>No, you got <em>markdown</em> in my <strong>jsx</strong></p>
+</div>
+
+But we can take mdx a step further and actually import _React_ components right into our mdx:
+
+```
+import MDXButton from '../src/components/MDXButton'
+
+#### A Heading for React component
+
+<div style={{ padding: '2rem', background: '#f4f4' }}>
+  <MDXButton />
+</div>
+```
+
+and get a result like:
+
+import MDXButton from '../src/components/MDXButton'
+
+<div style={{ padding: '2rem', background: '#f4f4' }}>
+  <MDXButton />
+</div>
+
+The final piece to consider in content creation is if I need a CMS of some sort. However, the technical nature of posts here, the desire to import my react components direclty into blog posts and the fact that I will be the sole maintainer led me to reject a git workflow based headless cms approach in favor of just writing posts in my ide and commiting the resluts to my [github repository](https://github.com/ashmortar/blog).  With that said I took a good long lookat [netlifyCMS](https://www.netlifycms.org/) and if I ever add additonal contributors to this site or perhaps as a future blog poost I will consider them strongly again.
+
+## Build Chain
+
+After a few different experiments with [NextJs](https://nextjs.org/) and [Gatsby](https://www.gatsbyjs.com/) as server side or static site generation for a personal portfolio and blog site I've decided to use [Docusaurus v2](https://v2.docusaurus.io/) as my static site generator of choice.
+
+While all of them (also shout out to [Jekyll](https://jekyllrb.com/) and [GitBook](https://www.gitbook.com/)) would allow me to work in react and to use .mdx in creating my blog posts I was swayed by the minimal complexity of setting up a docusaurus site and the baked in support it should have throughout and beyond alpha since it is used and maintained by Facebook.
+
+I'm not going to go though the pros and cons of each of these here but they are all probably good choices, depending on your situation.  I'll let you research your project.
+
+## Hosting
+
+There are many ways and places to host static sites these days and a lot of terms end up getting thrown around like (CDN)[https://www.cloudflare.com/learning/cdn/what-is-a-cdn/] (or edge server), 🔥🔥<em>blazing fast</em>🔥🔥, (JAMStack)[https://jamstack.org/] or many others when researching in this area, however the big players tend to be:
+- [S3 + Cloudfront](https://aws.amazon.com/blogs/networking-and-content-delivery/amazon-s3-amazon-cloudfront-a-match-made-in-the-cloud/)
+- [Netlify](https://www.netlify.com/)
+- [Vercel](https://vercel.com)
+- [GitHub Pages](https://pages.github.com/)
+
+Which, again, all offer different pros and cons, but I decided for now to go with Netlify for hosting this page as they have github integration, automatic deployment https availability, deploys on push, previews of deploys on pull requests and lots of other features. (To be honest vercel and netlify have extremely similar offerings so choosing between the two is really personal preference).  
+
+However, I mostly used this service because I was quickly able to purchase a domain I wanted [ashmortar.io](https://ashmortar.io) and get this blog build and deployed in a single day.  I plan to move the deployment for this site to github pages with a step in between via [Github Actions](https://github.com/features/actions) to perform the actual build step and any testing that introduce for other non-blog pages.
+
+## Wrap up
+
+Once getting my initial site up and deployed to Vercel I also added custom styling and the splash page so as to move away from the default style.  Also look out for upcoming blogs involving (synthesizers)[https://www.youtube.com/watch?v=P_9_ZDpazd4] (specifically an incredible [Moog Minitaur](https://www.moogmusic.com/products/minitaur) that an amazing friend gifted me), [Raspberry Pi(s)](https://www.raspberrypi.org/), trial cams, solar power and e-ink displays
+
+...though not necessarily all together and not necessarily in that order.
