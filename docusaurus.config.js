@@ -12,6 +12,7 @@ module.exports = {
     algolia: {
       apiKey: '3f757a18aea136c56100bcf9e12b800d',
       indexName: 'netlify_3b6231e5-fa67-4015-9918-552aec670a68_main_all',
+      appId: '8360ZGF9S6',
     },
     gtag: {
       trackingID: 'G-G9Z8YB7PP7',
@@ -78,7 +79,9 @@ module.exports = {
     [
       '@docusaurus/preset-classic',
       {
-        docs: false,
+        docs: {
+          sidebarPath: require.resolve('./sidebars.js'),
+        },
         blog: {
           showReadingTime: true,
           blogTitle: 'Rambling On',
