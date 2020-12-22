@@ -16,7 +16,7 @@ This website is built using
 
 <img alt="docusaurusv2 keytar logo" width="30px" src="https://v2.docusaurus.io/img/docusaurus_keytar.svg"> [Docusaurus v2](https://v2.docusaurus.io/): a modern static website generator.
 
-<img alt="netlify logo" width="30px" src="https://www.netlify.com/img/press/logos/logomark.png"> [Netlify](https://www.netlify.com/): a service for building, deploying and hosting modern websites
+<img alt="netlify logo" width="30px" src="https://www.netlify.com/img/press/logos/logomark.png"> [Netlify](https://www.netlify.com/): a service for building, deploying and hosting modern websites.
 
 ## Installation
 
