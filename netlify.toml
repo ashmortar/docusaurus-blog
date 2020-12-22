@@ -8,6 +8,7 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "geolocation=(self 'https://ashmortar.io)"
 [[plugins]]
+  package = "algoliasearch-netlify"
   [plugins.inputs]
   template = "hierarchical"
-  branches = ['main', 'feature/algolia']
+  branches = ['main', 'algolia']
