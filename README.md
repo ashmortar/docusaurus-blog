@@ -4,7 +4,19 @@
 
 #### [![Current Status](https://img.shields.io/uptimerobot/status/m786725220-eea8800b83d1736121a111ca?style=for-the-badge)](https://ashmortar.io) [![Uptime](https://img.shields.io/uptimerobot/ratio/m786725220-eea8800b83d1736121a111ca?style=for-the-badge)](https://uptimerobot.com/dashboard#786725220)
 
-This website is built using [Docusaurus 2](https://v2.docusaurus.io/), a modern static website generator. It is my personal website and blog.
+#### [![Firefox Observatory Score](https://img.shields.io/mozilla-observatory/grade-score/ashmortar.io?publish&style=for-the-badge)](https://observatory.mozilla.org/analyze/ashmortar.io)
+
+#### [![Security  Headers](https://img.shields.io/security-headers?style=for-the-badge&url=https%3A%2F%2Fashmortar.io)](https://securityheaders.com/?q=https%3A%2F%2Fashmortar.io&followRedirects=on)
+
+This website is built using
+
+<img alt="reactjs logo" width="30px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/200px-React-icon.svg.png"> [React](https://reactjs.org): the modern javascript framework
+
+<img alt="typescript logo" width="30px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/200px-Typescript_logo_2020.svg.png"> [Typescript](https://www.typescriptlang.org/): Static typing for javacript
+
+<img alt="docusaurusv2 keytar logo" width="30px" src="https://v2.docusaurus.io/img/docusaurus_keytar.svg"> [Docusaurus v2](https://v2.docusaurus.io/): a modern static website generator.
+
+<img alt="netlify logo" width="30px" src="https://www.netlify.com/img/press/logos/logomark.png"> [Netlify](https://www.netlify.com/): a service for building, deploying and hosting modern websites
 
 ## Installation
 
