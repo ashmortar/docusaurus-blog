@@ -7,8 +7,7 @@ author_url: https://github.com/ashmortar
 author_image_url: https://avatars1.githubusercontent.com/u/33615526?v=4
 description: knowledge-graph note taking for the long run with logseq
 tags: [blog, productivity, logseq, notes, note-taking, graph, knowledge-graph]
-image: https://docusaurus.io/img/undraw_docusaurus_tree.svg
-draft: true
+image: https://miro.medium.com/max/3868/1*64AZ80NoAO8wH1RVGToSKg.png
 ---
 
 Recently I've been trying to get myself organized, and one thing that has been recommended to me time and again is the [bullet journal](https://bulletjournal.com/) method for tracking my daily tasks. Usually though, I can actually keep track of things for a day at a time and I can be rather productive when focused on tasks. My issue lies in connecting things over time:
