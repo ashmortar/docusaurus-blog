@@ -70,7 +70,7 @@ function Home() {
                 <img
                   className={styles.cardImg}
                   src={useBaseUrl('img/nBody.png')}
-                  alt="N-Body simulation animated gif"
+                  alt="N-Body simulation"
                   title="N-Body Simulation done with canvas"
                 />
               </div>
