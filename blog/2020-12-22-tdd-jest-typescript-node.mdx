@@ -18,6 +18,11 @@ tags: [blog, node, typescript, TDD, testing, jest]
 image: https://ms314006.github.io/static/61b2001ca7ff66bffe5604dc0c52016d/5a4bd/Jest.jpg
 ---
 
+import Image from '@theme/IdealImage';
+import gh_template from '../static/img/github_use_this_template.png';
+import use_template from '../static/img/use_template_page.png';
+import green_test from '../static/img/green_test.png';
+
 Testing software is essential and serves more functions than are immediately apparent. A good test can ensure not only that a unit of code works as intended but as an application grows they provide a record of stability and when new developers come on to a project they provide a safety net against unintended side effects.
 
 This article will walk through setting up test driven development in node using typescript and jest.
@@ -38,16 +43,22 @@ There are 2 options, if you have a github account and if you do not, but for bot
 
 1. Go the [node-jest-typescript-example](https://github.com/ashmortar/node-jest-typescript-example/tree/set-up)repository and click on the `Use this template` button:
    <a href="https://github.com/ashmortar/node-jest-typescript-example/tree/set-up">
-     <img
+     <Image
        width="150px"
-       src="https://ashmortar.io/img/github_use_this_template.png"
+       img={gh_template}
        alt="Screenshot of ashmortar/node-jest-typescript-example repository featuring Use this template button"
+       min="200"
+       max="2000"
+       steps="5"
      />
    </a>
 2. Enter you repository name and description on the ensuing page:
-   <img
-     src="https://ashmortar.io/img/use_template_page.png"
+   <Image
+     img={use_template}
      alt="screenshot example of github's template page with include all branches option highlighted"
+     min="200"
+     max="2000"
+     steps="5"
    />
    <small>
      <strong>make sure to check `Include all branches`</strong>
@@ -151,7 +162,7 @@ Finally, lets open up `package.json` and add some new keys:
 
 Which adds a `script` to run our tests and a `jest` key to tell jest what file extensions to load and where our node modules are stored. It is now time to commit you code and move on to the next step.
 
-## Write first test
+## Write the test first
 
 :::tip Get the code
 If you haven't been coding along you can start here by checking out the [add-tests](https://github.com/ashmortar/node-jest-typescript-example/tree/add-tests) branch from my repository.
@@ -213,4 +224,10 @@ export default {
 
 Now we can finally run our test and see that it works with `yarn test` in the base directory and we should get the output with our wonderful green check:
 
-<img src="https://ashmortar.io/img/green_test.png" />
+<Image
+  img={green_test}
+  alt="screenshot of terminal output showing successful a successful jest test"
+  min="200"
+  max="2000"
+  steps="5"
+/>
