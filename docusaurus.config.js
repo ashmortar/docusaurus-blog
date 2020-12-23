@@ -94,6 +94,7 @@ module.exports = {
             title: 'Rambling On',
             description: 'Musings of a Polymath',
           },
+          editUrl: 'https://github.com/ashmortar/docusaurus-blog/edit/main/blog/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
