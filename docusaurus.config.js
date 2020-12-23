@@ -8,6 +8,7 @@ module.exports = {
   favicon: 'img/midi.svg',
   organizationName: 'ashmortar',
   projectName: 'docusaurus-blog',
+  plugins: ['@docusaurus/plugin-ideal-image'],
   themeConfig: {
     algolia: {
       apiKey: '3f757a18aea136c56100bcf9e12b800d',
