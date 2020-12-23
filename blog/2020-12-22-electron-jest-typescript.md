@@ -1,0 +1,194 @@
+---
+slug: tdd-jest-typescript-node
+title: TDD with jest and typescript
+author: Aaron Ross
+author_title: Software Engineer / Web Developer @ EyeCue Lab
+author_url: https://github.com/ashmortar
+author_image_url: https://avatars1.githubusercontent.com/u/33615526?v=4
+description: learn how to write node service tests in typescript with jest
+tags: [blog, node, typescript, TDD, testing, jest]
+image: https://ms314006.github.io/static/61b2001ca7ff66bffe5604dc0c52016d/5a4bd/Jest.jpg
+---
+
+Testing software is essential and serves more functions than are immediately apparent. A good test can ensure not only that a unit of code works as intended but as an application grows they provide a record of stability and when new developers come on to a project they provide a safety net against unintended side effects.
+
+This article will walk through setting up test driven development in node using typescript and jest.
+
+:::tip Get the code
+completed example code for this article can be found [here](https://github.com/ashmortar/node-jest-typescript-example)
+:::
+
+<!--truncate-->
+
+## Set Up
+
+### Initialize a repository
+
+There are 2 options, if you have a github account and if you do not, but for both we will create/clone the repository and then enter the directory and switch to the `set-up` branch
+
+#### Github Users
+
+1. Go the [node-jest-typescript-example](https://github.com/ashmortar/node-jest-typescript-example/tree/set-up)repository and click on the `Use this template` button:
+   <a href="https://github.com/ashmortar/node-jest-typescript-example/tree/set-up"><img width="150px" src="../static/img/github_use_this_template.png" alt="Screenshot of ashmortar/node-jest-typescript-example repository featuring Use this template button"/></a>
+2. Enter you repository name and description on the ensuing page:
+   <img src="../static/img/use_template_page.png" alt="screenshot example of github's template page with include all branches option highlighted" />
+   <small><strong>make sure to check `Include all branches`</strong></small>
+3. clone your repository to your local machine
+
+```bash
+git clone https://<your_gh_username>/<your_repo_name>.git
+
+cd <your_repo_name>
+git checkout set-up
+```
+
+#### Regular Git Workflow
+
+1. start in the parent directory where you want to install the project and run the following to clone the repository into the directory `<your-project-name>`:
+
+```bash
+# make sure to replace "your-project-name"
+git clone https://github.com/ashmortar/node-jest-typescript-example.git <your-project-name>
+cd <your_project_name>
+git checkout set-up
+```
+
+### Package manager and Dependencies
+
+You should now have a file structure similar to:
+
+```
+node-jest-typescript-example
+ | - .gitignore
+ | - LICENSE
+ | - README.md
+```
+
+which are essential files that every public repository needs or will want. I won't explain them here, but if you aren't familiar there are [lots](https://github.com/github/gitignore) of [good resources](https://opensource.org/licenses) [out](https://www.makeareadme.com/) [there](https://docs.github.com/en/free-pro-team@latest/github/writing-on-github/basic-writing-and-formatting-syntax).
+
+The next steps are to initialize our package manager and install the necessary dependencies for this project. I will be using [yarn](https://yarnpkg.com/) as my package manager of choice.
+
+1. Create a `package.json` file
+   Run `yarn init` at the root of the project. Which will ask you a series of questions with some values pre-populated from our existing `LICENSE` file and create a `package.json` file. Note that in my example below I am renaming `entry point` to `index.ts`
+
+```bash
+yarn init v1.22.4
+question name (node-jest-typescript-example):
+question version (1.0.0):
+question description:
+question entry point (index.js): index.ts
+question repository url (https://github.com/ashmortar/node-jest-typescript-example.git):
+question author (Aaron Ross <aaron.ross@eyecuelab.com>):
+question license (MIT):
+question private:
+success Saved package.json
+✨  Done in 41.35s.
+```
+
+2. Install Dependencies
+
+most of this comes directly from the [jest getting started guide](https://jestjs.io/docs/en/getting-started). First we need to add the dependencies we need:
+
+```bash
+ yarn add --dev @babel/core @babel/preset-env @types/jest babel-jest jest typescript
+```
+
+3. Create a `babel.config.js` (jest requires babel to transpile ts code)
+
+```bash
+touch babel.config.js
+```
+
+and paste in the following:
+
+```javascript title="/babel.config.js"
+module.exports = (api) => {
+  // const isTest = api.env('test');
+  // You can use isTest to determine what presets and plugins to use.
+
+  return {
+    presets: [
+      ['@babel/preset-env', { targets: { node: 'current' } }],
+      '@babel/preset-typescript',
+    ],
+  };
+};
+```
+
+Finally, lets open up `package.json` and add some new keys:
+
+```json title="/package.json"
+{
+  // ... other content above
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "moduleFileExtensions": ["js", "jsx", "json", "ts", "tsx"],
+    "moduleDirectories": ["node_modules"]
+  }
+}
+```
+
+Which adds a `script` to run our tests and a `jest` key to tell jest what file extensions to load and where our node modules are stored. It is now time to commit you code and move on to the next step.
+
+## Write first test
+
+:::tip Get the code
+If you haven't been coding along you can start here by checking out the [add-tests](https://github.com/ashmortar/node-jest-typescript-example/tree/add-tests) branch from my repository.
+:::
+
+Since we are using [Test Driven Development](https://en.wikipedia.org/wiki/Test-driven_development) for this project it is now time to write the fist test. Lets make some directories and files:
+
+```bash
+mkdir src
+mkdir test
+touch src/basicMath.ts
+touch test/basicMath.spec.ts
+```
+
+and then open up the .spec file and add a test:
+
+```typescript title="/basicMath.spec.js"
+import basicMath from '../src/basicMath';
+
+describe('basic math', () => {
+  it('should add two numbers', async () => {
+    const answer = basicMath.add(1, 2);
+    expect(answer).toBe(3);
+  });
+});
+```
+
+but if we try and run it with `yarn test`
+
+```bash
+yarn run v1.22.4
+$ jest
+ FAIL  test/basicMath.spec.js
+  ● Test suite failed to run
+```
+
+But that makes sense because we haven't actually written the `add` function (or anything) in basicMath yet.
+
+## Implement
+
+Now we can write our implementation of basicMath.add:
+
+```typescript title="/src/basicMath.ts"
+export function add(number1: number, number2: number): number {
+  return number1 + number2;
+}
+
+export default {
+  add,
+};
+```
+
+<small>NOTE: If you are using [VS Code](https://code.visualstudio.com/) you may see your test run in the `jest` section of the `output` tab when you save this file</small>
+
+## Praise the green check
+
+Now we can finally run our test and see that it works with `yarn test` in the base directory and we should get the output with our wonderful green check:
+
+<img src="../static/img/green_test.png" />
