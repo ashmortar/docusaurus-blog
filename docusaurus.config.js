@@ -89,6 +89,7 @@ module.exports = {
           blogSidebarCount: 5,
           blogSidebarTitle: 'Previous Ramblings',
           postsPerPage: 10,
+          editUrl: 'https://github.com/ashmortar/docusaurus-blog/edit/main/',
           feedOptions: {
             type: 'all',
             title: 'Rambling On',
