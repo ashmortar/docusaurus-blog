@@ -41,34 +41,6 @@ function Home() {
               <div className="card__image">
                 <img
                   className={styles.cardImg}
-                  src="https://www.eyecuelab.com/images/black_logo.jpg"
-                  alt="Logo for EyeCue Lab"
-                  title="EyeCue Lab | Enterprise Software Development"
-                />
-              </div>
-              <div className="card__body">
-                <h4>EyeCueLab</h4>
-                <small>
-                  I&apos;m currently an Electron and React full stack developer at EyeCue
-                  Lab working on desktop software to process scientific research data
-                </small>
-              </div>
-              <div className="card__footer">
-                <button
-                  type="button"
-                  onClick={() => window.open('https://www.eyecuelab.com/')}
-                  className="button button--primary button--block"
-                >
-                  Open in New Tab
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className="col">
-            <div className="card">
-              <div className="card__image">
-                <img
-                  className={styles.cardImg}
                   src={useBaseUrl('img/nBody.png')}
                   alt="N-Body simulation"
                   title="N-Body Simulation done with canvas"
